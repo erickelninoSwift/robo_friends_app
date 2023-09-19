@@ -1,19 +1,15 @@
 import React, { Component } from "react";
-import "./App.css";
-import "./nav.css";
-import { Card } from "./Card";
 import { robots } from "./robots";
+import { CardList } from "./CardList";
+import { SearchBox } from "./SearchBox";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="tc">
         <h1>Robofriends</h1>
-        <div>
-          {robots.map((data) => {
-            return <Card key={data.id} robot={data} />;
-          })}
-        </div>
+        <SearchBox />
+        <CardList robotsList={robots} />
       </div>
     );
   }
