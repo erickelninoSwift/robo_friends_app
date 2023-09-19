@@ -1,16 +1,20 @@
 import React, { Component } from "react";
 import "./App.css";
-import { Hello } from "./Hello";
+import "./nav.css";
+import { Card } from "./Card";
+import { robots } from "./robots";
 
 class App extends Component {
   render() {
     return (
-      <>
-        <div className="App">
-          Hello world
-          <Hello />
+      <div className="App">
+        <h1>Robofriends</h1>
+        <div>
+          {robots.map((data) => {
+            return <Card key={data.id} robot={data} />;
+          })}
         </div>
-      </>
+      </div>
     );
   }
 }
