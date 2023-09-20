@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./nav.css";
+import "./index.css";
 import { robots } from "./robots";
 import { CardList } from "./CardList";
 import { SearchBox } from "./SearchBox";
