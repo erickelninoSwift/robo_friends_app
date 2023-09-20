@@ -3,6 +3,7 @@ import "./index.css";
 import { robots } from "./robots";
 import { CardList } from "./CardList";
 import { SearchBox } from "./SearchBox";
+import { Scroll } from "./Scroll";
 
 class App extends Component {
   constructor(props) {
@@ -38,12 +39,14 @@ class App extends Component {
       <div className="tc">
         <h1 className="f1">Robofriends</h1>
         <SearchBox getSearchInput={this.updateSearchInput} />
-        <CardList
-          robotsList={
-            filteredRobot.length > 0 ? filteredRobot : this.state.allRobots
-          }
-          searchInputText={this.state.searchInput}
-        />
+        <Scroll>
+          <CardList
+            robotsList={
+              filteredRobot.length > 0 ? filteredRobot : this.state.allRobots
+            }
+            searchInputText={this.state.searchInput}
+          />
+        </Scroll>
       </div>
     );
   }
