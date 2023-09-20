@@ -8,13 +8,23 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      allRobots: robots,
+      allRobots: [],
       searchInput: "",
     };
     this.updateSearchInput = this.updateSearchInput.bind(this);
   }
   updateSearchInput(data) {
     this.setState({ searchInput: data });
+  }
+
+  componentDidMount() {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        this.setState({ allRobots: data });
+      });
   }
 
   render() {
@@ -26,7 +36,7 @@ class App extends Component {
 
     return (
       <div className="tc">
-        <h1>Robofriends</h1>
+        <h1 className="f1">Robofriends</h1>
         <SearchBox getSearchInput={this.updateSearchInput} />
         <CardList
           robotsList={
