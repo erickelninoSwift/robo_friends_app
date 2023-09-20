@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "./Card";
 
-export const CardList = ({ robotsList }) => {
+export const CardList = ({ robotsList, searchInputText }) => {
   return (
     <div>
       {robotsList.map((data) => {
